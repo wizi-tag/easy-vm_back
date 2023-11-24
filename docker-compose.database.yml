@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  postgres:
+    build: ./build
+    container_name: postgres15
+    image: postgres:15
+    environment:
+      POSTGRES_DB: "db-name"
+      POSTGRES_USER: "db-user"
+      POSTGRES_PASSWORD: "db-pass"
+    ports:
+      - "9432:5432"

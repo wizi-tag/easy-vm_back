@@ -17,6 +17,9 @@ export class VirtualMachine extends Model {
   @Column
   type: string;
 
+  @Column
+  isActive: boolean;
+
   @ForeignKey(() => Server)
   hostId: number;
 

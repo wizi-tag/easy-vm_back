@@ -15,6 +15,9 @@ module.exports = {
       type: {
         type: Sequelize.STRING,
       },
+      isActive: {
+        type: Sequelize.BOOLEAN,
+      },
       hostId: {
         type: Sequelize.INTEGER,
         allowNull: false,

@@ -8,7 +8,6 @@ import { VirtualMachine } from './db/models/vm';
 import { User } from './db/models/user';
 import { AuthModule } from './modules/auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
-import { FakeApiModule } from './modules/fake-api/fake-api.module';
 
 @Module({
   imports: [
@@ -26,7 +25,6 @@ import { FakeApiModule } from './modules/fake-api/fake-api.module';
     }),
     VmsModule,
     AuthModule,
-    FakeApiModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -4,7 +4,9 @@ import {
   Model,
   CreatedAt,
   UpdatedAt,
+  HasMany,
 } from 'sequelize-typescript';
+import { VirtualMachine } from './vm';
 
 @Table
 export class Server extends Model {
@@ -12,14 +14,17 @@ export class Server extends Model {
   name: string;
 
   @Column
- host: string;
+  host: string;
 
   @Column
-port: number;
+  port: number;
 
   @CreatedAt
   createdAt: Date;
 
   @UpdatedAt
   updatedAt: Date;
+
+  @HasMany(() => VirtualMachine, 'hostId')
+  virtualMachines: VirtualMachine[];
 }

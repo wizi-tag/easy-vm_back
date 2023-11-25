@@ -2,21 +2,27 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Servers', {
+    await queryInterface.createTable('virtual-machines', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      host: {
-        type: Sequelize.STRING,
-      },
-      port: {
-        type: Sequelize.INTEGER,
-      },
       name: {
         type: Sequelize.STRING,
+      },
+      type: {
+        type: Sequelize.STRING,
+      },
+      hostId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Servers',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,
@@ -29,6 +35,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Servers');
+    await queryInterface.dropTable('virtual-machines');
   },
 };
